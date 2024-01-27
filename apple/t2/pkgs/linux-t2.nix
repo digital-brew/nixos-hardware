@@ -5,11 +5,11 @@ let
   patchRepo = fetchFromGitHub {
     owner = "t2linux";
     repo = "linux-t2-patches";
-    rev = "46dd873d1d9d12b26916790045008a91a95d0c11";
+    rev = "234bbef68c666aa33bb4f78841d08fd8ea787af2";
     hash = "sha256-YGUGuzsAJFtZYjIW9d2XU4eGKNvMKCaWXqgqJn5TdeY=";
   };
 
-  version = "6.5";
+  version = "6.7";
   majorVersion = with lib; (elemAt (take 1 (splitVersion version)) 0);
 in
 buildLinux (args // {
