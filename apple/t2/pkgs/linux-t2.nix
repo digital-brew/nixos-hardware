@@ -6,7 +6,7 @@ let
     owner = "t2linux";
     repo = "linux-t2-patches";
     rev = "234bbef68c666aa33bb4f78841d08fd8ea787af2";
-    hash = "sha256-YGUGuzsAJFtZYjIW9d2XU4eGKNvMKCaWXqgqJn5TdeY=";
+    hash = "sha256-6L5n1Yg2TDtdEjyeyjXlbNicS0ttwRcuMTaYRCaV1gI=";
   };
 
   version = "6.7";
