@@ -41,7 +41,7 @@ buildLinux (args // {
     BT_HCIUART_BCM = yes;
     BT_HCIUART = module;
     DRM_APPLETBDRM = module;
-    # HID_APPLE_IBRIDGE = module;
+    HID_APPLE_IBRIDGE = module;
     HID_APPLE = module;
     HID_APPLE_MAGIC_BACKLIGHT = module;
     # HID_APPLE_TOUCHBAR = module;
