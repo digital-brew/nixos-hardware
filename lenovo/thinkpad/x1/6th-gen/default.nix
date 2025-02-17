@@ -9,7 +9,7 @@
 {
   imports = [
     ../.
-    ../../../../common/pc/laptop/acpi_call.nix
+    ../../../../common/cpu/intel/kaby-lake
     ../../../../common/pc/laptop/ssd
   ];
 

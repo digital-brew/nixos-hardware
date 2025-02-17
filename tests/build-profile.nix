@@ -1,10 +1,10 @@
-{ profile, pkgs }:
+{ pkgs, profile }:
 
 (pkgs.nixos [
   profile
   ({ config, lib, ... }: {
     nixpkgs.pkgs = pkgs;
-    boot.loader.systemd-boot.enable = !config.boot.loader.generic-extlinux-compatible.enable && !config.boot.loader.raspberryPi.enable;
+    boot.loader.systemd-boot.enable = !config.boot.loader.generic-extlinux-compatible.enable;
     # we forcefully disable grub here just for testing purposes, even though some profiles might still use grub in the end.
     boot.loader.grub.enable = false;
 

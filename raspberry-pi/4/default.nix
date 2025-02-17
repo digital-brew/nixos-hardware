@@ -4,6 +4,7 @@
   imports = [
     ./audio.nix
     ./backlight.nix
+    ./bluetooth.nix
     ./cpu-revision.nix
     ./digi-amp-plus.nix
     ./dwc2.nix
@@ -16,6 +17,7 @@
     ./pwm0.nix
     ./tc358743.nix
     ./touch-ft5406.nix
+    ./tv-hat.nix
     ./xhci.nix
   ];
 

@@ -1,24 +1,23 @@
 { config, lib, ... }: {
   imports = [
+    ../../../common/gpu/24.05-compat.nix
     ../../../common/gpu/nvidia/prime.nix
-    ../../../common/cpu/intel
+    ../../../common/gpu/nvidia/maxwell
     ../../../common/cpu/intel/kaby-lake
-    ../../../common/pc/laptop/acpi_call.nix
     ../.
   ];
 
   hardware = {
+    graphics = {
+      enable = lib.mkDefault true;
+      enable32Bit = lib.mkDefault true;
+    };
+
     nvidia = {
       prime = {
         intelBusId = lib.mkDefault "PCI:0:2:0";
         nvidiaBusId = lib.mkDefault "PCI:1:0:0";
       };
-    };
-
-    # is this too much?  It's convenient for Steam.
-    opengl = {
-      driSupport = lib.mkDefault true;
-      driSupport32Bit = lib.mkDefault true;
     };
   };
 

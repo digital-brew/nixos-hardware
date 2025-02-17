@@ -4,8 +4,8 @@
   linux-surface = fetchFromGitHub {
     owner = "linux-surface";
     repo = "linux-surface";
-    rev = "arch-6.6.6-1";
-    hash = "sha256-0pP/A0XllR/iheIBEBwEApaXpyFYzsnGZ+wdm4w5Jjg=";
+    rev = "arch-6.12.7-1";
+    hash = "sha256-Pv7O8D8ma+MPLhYP3HSGQki+Yczp8b7d63qMb6l4+mY=";
   };
 
   # This is the owner and repo for the pre-patched kernel from the "linux-surface" project:
@@ -15,13 +15,6 @@
       repo = "kernel";
       inherit rev sha256;
     };
-
-  ath10k-firmware = fetchFromGitHub {
-    owner = "kvalo";
-    repo = "ath10k-firmware";
-    rev = "c987e38cbdb90dcb4e477d5dd21de66c77996435";
-    sha256 = "16a67baxlga8vb43zbby2s7kpp4488vczg3manmr9g3wxnhhb9n3";
-  };
 
   surface-go-ath10k-firmware_backup = fetchFromGitHub {
     owner = "mexisme";
