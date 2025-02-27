@@ -1,6 +1,5 @@
 {
   imports = [
-    ../../../../common/cpu/intel
     ../../../../common/cpu/intel/kaby-lake
     ../../../../common/pc/laptop
     ../../../../common/gpu/nvidia/disable.nix

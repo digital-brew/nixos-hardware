@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 with lib;
 
@@ -18,7 +18,7 @@ in
     hardware.sensor.iio.bmi260.enable = mkOption {
       default = false;
       type = types.bool;
-      description = mdDoc ''
+      description = ''
         Enable Bosch BMI260 IMU kernel module driver.
       '';
     };
@@ -28,6 +28,9 @@ in
 
   config = mkIf config.hardware.sensor.iio.bmi260.enable {
     boot.extraModulePackages = [ bmi260 ];
-    boot.kernelModules = [ "bmi260_core" "bmi260_i2c" ];
+    boot.kernelModules = [
+      "bmi260_core"
+      "bmi260_i2c"
+    ];
   };
 }

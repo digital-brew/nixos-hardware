@@ -1,12 +1,18 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
-  # This option is removed from NixOS 23.05 and up
-  nixosVersion = lib.versions.majorMinor lib.version;
-  config = if lib.versionOlder nixosVersion "23.05" then {
-    hardware.video.hidpi.enable = lib.mkDefault true;
-  } else {
-    # Just set the console font, don't mess with the font settings
-    console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
-    console.earlySetup = lib.mkDefault true;
-  };
-in config
+  # Starting with kernel 6.8, the console font is set in the kernel automatically to a 16x32 font:
+  # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dfd19a5004eff03755967086aa04254c3d91b8ec
+  oldKernel = lib.versionOlder config.boot.kernelPackages.kernel.version "6.8";
+in
+{
+  # Just set the console font, don't mess with the font settings
+  console.font = lib.mkIf oldKernel (
+    lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz"
+  );
+  console.earlySetup = lib.mkIf oldKernel (lib.mkDefault true);
+}
